@@ -13,12 +13,12 @@ export const useCounterStore = defineStore('counter', () => {
   const Ocean = () => count.value++
   const Ocean1 = () => count.value--
 
-
-const Legacy = ref([])
+  //  异步数据操作
+  const Legacy = ref([])
   const Embrace = async () => {
-    const {data :{list}} = await axios.post('https://www.dedao.cn/pc/ddlive/v2/pc/home/live')
-    Legacy.value = list
-    console.log(list)
+    const {data: {c}} = await axios.post('https://www.dedao.cn/pc/ddlive/v2/pc/home/live')
+    Legacy.value = c.list
+    console.log(c.list)
   }
 
 
@@ -33,6 +33,9 @@ const Legacy = ref([])
     Embrace,
     Legacy,
   }
+},{
+  //  开启当前模块的持久化
+  persist: true,
 })
 
 

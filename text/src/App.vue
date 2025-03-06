@@ -96,8 +96,8 @@ setTimeout(() => {
 
 
 // provide写一个函数，给后代组件调用
-provide('Freedom',(Dream) => {
-  Harmony.value = Dream
+provide('Freedom',(dream) => {
+  Harmony.value = dream
 })
 
 //  父组件的数据与子组件的 input标签做双向绑定
@@ -110,7 +110,7 @@ import { useCounterStore } from '@/Store/counter.js'
 //  访问到的是一个对象，使用渲染要 Adventure.xxxx
 const Adventure = useCounterStore()
 
-// 解构语法,解构后直接引用
+// 解构仓库里面的数据,解构后直接引用
 import { storeToRefs } from 'pinia'
 const { Embrace } = Adventure
 const { Legacy } = storeToRefs(Adventure)
@@ -190,7 +190,7 @@ const { Legacy } = storeToRefs(Adventure)
     v-model="txt"
     ref="Wisdom"
     :Spirit="Spirit"
-    @Dream="Forest"
+    @dream="Forest"
   >
   </son>
   {{ txt }}
